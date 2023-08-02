@@ -11,11 +11,12 @@ import {
   LayoutDashboard,
   MessageSquare,
   ImageIcon,
-  VideoIcon,
-  Music,
+  // VideoIcon,
+  // Music,
   Code,
   Settings,
 } from "lucide-react";
+import { FreeCounter } from "@/components/free-counter";
 
 const montserrat = Montserrat({
   weight: "600",
@@ -41,18 +42,18 @@ const routes = [
     href: "/image",
     color: "text-pink-700",
   },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-700",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emerald-500",
-  },
+  // {
+  //   label: "Video Generation",
+  //   icon: VideoIcon,
+  //   href: "/video",
+  //   color: "text-orange-700",
+  // },
+  // {
+  //   label: "Music Generation",
+  //   icon: Music,
+  //   href: "/music",
+  //   color: "text-emerald-500",
+  // },
   {
     label: "Code Generation",
     icon: Code,
@@ -67,7 +68,11 @@ const routes = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+}
+
+const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
@@ -82,7 +87,7 @@ const Sidebar = () => {
             />
           </div>
           <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-            Wave<span className="text-blue-200">form</span>
+            Wave<span className="text-[#dd876c]">form</span>
           </h1>
         </Link>
         <div className="space-y-1">
@@ -103,6 +108,9 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <FreeCounter
+        apiLimitCount={apiLimitCount}
+      />
     </div>
   );
 };

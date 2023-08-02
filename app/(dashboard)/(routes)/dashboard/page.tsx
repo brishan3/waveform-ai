@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 import {
   MessageSquare,
   ImageIcon,
-  VideoIcon,
-  Music,
+  // VideoIcon,
+  // Music,
   Code,
   ArrowRight
 } from "lucide-react";
@@ -28,20 +28,20 @@ const tools = [
     color: "text-pink-700",
     bgColor: "bg-pink-700/10"
   },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10"
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10"
-  },
+  // {
+  //   label: "Video Generation",
+  //   icon: VideoIcon,
+  //   href: "/video",
+  //   color: "text-orange-700",
+  //   bgColor: "bg-orange-700/10"
+  // },
+  // {
+  //   label: "Music Generation",
+  //   icon: Music,
+  //   href: "/music",
+  //   color: "text-emerald-500",
+  //   bgColor: "bg-emerald-500/10"
+  // },
   {
     label: "Code Generation",
     icon: Code,
