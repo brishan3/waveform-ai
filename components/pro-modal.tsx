@@ -11,14 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { useProModal } from "@/hooks/useProModal";
 import { Badge } from "@/components/ui/badge";
-import {
-  MessageSquare,
-  ImageIcon,
-  Code,
-  ArrowRight,
-  Check,
-  Zap,
-} from "lucide-react";
+import { MessageSquare, ImageIcon, Code, Check, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -61,7 +54,7 @@ export const ProModal = () => {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
@@ -93,7 +86,13 @@ export const ProModal = () => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button onClick={onSubscribe} className="w-full" variant="cta" size="lg">
+          <Button
+            disabled={loading}
+            onClick={onSubscribe}
+            className="w-full"
+            variant="cta"
+            size="lg"
+          >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>

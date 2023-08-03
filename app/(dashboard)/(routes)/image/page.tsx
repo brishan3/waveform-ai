@@ -85,6 +85,7 @@ const ImagePage = () => {
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         placeholder="An elephant playing tennis in the jungle"
+                        autoComplete="off"
                         {...field}
                       />
                     </FormControl>
