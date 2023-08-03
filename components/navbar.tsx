@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar = ({ apiLimitCount = 0, isPro = false }: NavbarProps) => {
   return (
-    <div className="flex items-center p-4">
+    <div className="flex items-center p-4 h-20">
       <MobileSidebar apiLimitCount={apiLimitCount} isPro={isPro}/>
       <div className="flex w-full justify-end">
         <UserButton afterSignOutUrl="/"/>

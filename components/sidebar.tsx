@@ -80,19 +80,19 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
         </Link>
         <div className="space-y-1">
           {routes.map(({ label, icon: Icon, href, color }) => (
-            <Link
-              href={href}
-              key={href}
-              className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                pathname === href ? "text-white bg-white/10" : "text-zinc-400"
-              )}
-            >
-              <div className="flex items-center flex-1">
-                <Icon className={cn("h-5 w-5 mr-3", color)} />
-                {label}
-              </div>
-            </Link>
+              <Link
+                href={href}
+                key={href}
+                className={cn(
+                  "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                  pathname === href ? "text-white bg-white/10" : "text-zinc-400"
+                  )}
+                  >
+                <div className="flex items-center flex-1">
+                  <Icon className={cn("h-5 w-5 mr-3", color)} />
+                  {label}
+                </div>
+              </Link>
           ))}
         </div>
       </div>
