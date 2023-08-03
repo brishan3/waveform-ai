@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Waveform AI
+
+Waveform AI is an OpenAI wrapper/SaaS app built with [Next.js 13](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/), [Shadcn/ui](https://ui.shadcn.com/), [PrismaDB](https://www.prisma.io/), [Clerk](https://clerk.com/), [Stripe](https://stripe.com/), [OpenAI](https://openai.com/) and [Crisp](https://crisp.chat/).
+
+The objective of this project was to further my experience in setting up modern OAuth based User Authentication (using Clerk), as well as integrating a payment portal (using Stripe) and using TypeScript for type-safe development within NextJS. This project also boasts live customer support via [Crisp Chat](https://crisp.chat/).
 
 ## Getting Started
 
-First, run the development server:
+To get started with the project, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Clone the repository:
+
+```console
+git clone https://github.com/brishan3/waveform-ai.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Required API Key:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```console
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = Sign up for a free Clerk account and attain API keys https://clerk.com/
+CLERK_SECRET_KEY = Sign up for a free Clerk account and attain API keys
+OPENAI_API_KEY = Sign up for a OpenAI account to attain API keys (will need credit card) https://openai.com/
+STRIPE_API_KEY = Sign up for a free Stripe account and attain API key https://stripe.com/
+STRIPE_WEBHOOK_SECRET = Sign up for a free Stripe account and attain Webhook API key https://stripe.com/
+DATABASE_URL = Sign up for a free account and create a MySQL DB on https://planetscale.com/ 
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* You will also want to update the Crisp Chat key in `/components/crisp-chat.tsx` with your own key which can be attained by making an account at [Crisp](https://crisp.chat/).
 
-## Learn More
+Install the dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+```console
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set up database:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```console
+npx prisma generate
+# then
+npx prisma db push
 
-## Deploy on Vercel
+# (Tip) if you need to reset the DB run:
+npx prisma migrate reset
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# then run the first two commands again.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Run the development server:
+
+```console
+npm run dev
+```
+
+Open http://localhost:3000 with your browser to see the result.
