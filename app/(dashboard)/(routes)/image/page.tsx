@@ -7,6 +7,7 @@ import axios from "axios";
 import * as z from "zod";
 import { Download, ImageIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useProModal } from "@/hooks/useProModal";
 
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
@@ -18,11 +19,11 @@ import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { cn } from "@/lib/utils";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 
 const ImagePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
 
   const [images, setImages] = useState<string[]>([]);
@@ -52,8 +53,9 @@ const ImagePage = () => {
       form.reset();
 
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.log(error);
+      if(error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

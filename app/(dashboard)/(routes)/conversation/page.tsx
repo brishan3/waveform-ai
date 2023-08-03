@@ -8,6 +8,7 @@ import * as z from "zod";
 import { MessageSquare } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChatCompletionRequestMessage } from "openai";
+import { useProModal } from "@/hooks/useProModal";
 
 import { formSchema } from "./constants";
 
@@ -22,6 +23,7 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { cn } from "@/lib/utils";
 
 const ConversationPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
 
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
@@ -52,8 +54,9 @@ const ConversationPage = () => {
       form.reset();
 
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.log(error);
+      if(error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

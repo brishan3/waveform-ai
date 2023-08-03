@@ -38,7 +38,7 @@ export async function POST(
       return new NextResponse("Resolution is required", { status: 400 })
     }
 
-    const freeTrial = checkApiLimit();
+    const freeTrial = await checkApiLimit();
 
     if (!freeTrial) {
       return new NextResponse("Free trial has expired", { status: 403 });
