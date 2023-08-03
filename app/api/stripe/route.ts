@@ -28,7 +28,7 @@ export async function GET() {
         return_url: settingsUrl,
       });
 
-      return new NextResponse(JSON.stringify({ url: stripeSession.url }));
+      return new NextResponse(JSON.stringify({ url: stripeSession.url }), { status: 200 });
     }
 
     const stripeSession = await stripe.checkout.sessions.create({
@@ -46,7 +46,7 @@ export async function GET() {
               name: "Waveform AI Pro",
               description: "Unlimited AI Generations",
             },
-            unit_amount: 2000,
+            unit_amount: 1299,
             recurring: {
               interval: "month",
             },
@@ -59,7 +59,7 @@ export async function GET() {
       },
     });
 
-    return new NextResponse(JSON.stringify({ url: stripeSession.url }));
+    return new NextResponse(JSON.stringify({ url: stripeSession.url }), { status: 200 });
   } catch (error) {
     console.log("[STRIPE_ERROR]", error);
     return new NextResponse("Internal error", { status: 500 });
