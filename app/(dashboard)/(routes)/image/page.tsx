@@ -8,6 +8,7 @@ import * as z from "zod";
 import { Download, ImageIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useProModal } from "@/hooks/useProModal";
+import toast from "react-hot-toast";
 
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
@@ -55,6 +56,8 @@ const ImagePage = () => {
     } catch (error: any) {
       if(error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong")
       }
     } finally {
       router.refresh();
