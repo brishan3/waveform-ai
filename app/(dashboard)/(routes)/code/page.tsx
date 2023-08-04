@@ -103,7 +103,7 @@ const CodePage = () => {
             </form>
           </Form>
         </div>
-        <div className="space-y-4 mt-4">
+        <div className="space-y-4 mt-4 pb-32">
           {isLoading && (
             <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
               <Loader/>
@@ -122,12 +122,12 @@ const CodePage = () => {
                 <ReactMarkdown
                   components={{
                     pre: ({node, ...props}) => (
-                      <div className="overflow-auto w-full my-2 bg-black-10 p-2 rounded-lg">
+                      <div className="overflow-auto w-full my-2 bg-black-10 p-4 rounded-lg bg-black/10">
                         <pre {...props}/>
                       </div>
                     ),
                     code: ({node, ...props}) => (
-                      <code className="bg-black/10 rounded-lg p-1" {...props}/>
+                      <code className="rounded-lg p-1" {...props}/>
                     ),
                   }}
                   className="text-sm overflow-hidden leading-7"
