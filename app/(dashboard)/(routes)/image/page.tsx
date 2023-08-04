@@ -50,7 +50,7 @@ const ImagePage = () => {
       const urls = response.data.map((image: { url :string }) => image.url);
 
       setImages(urls);
-      
+
     } catch (error: any) {
       if(error?.response?.status === 403) {
         proModal.onOpen();
@@ -168,7 +168,7 @@ const ImagePage = () => {
           {images.length === 0 && !isLoading && (
             <Empty label="No images generated"/>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 gap-4">
             {images.map((src) => (
               <Card
                 key={src}
