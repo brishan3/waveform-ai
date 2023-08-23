@@ -22,6 +22,9 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { cn } from "@/lib/utils";
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 const ConversationPage = () => {
   const proModal = useProModal();
@@ -68,7 +71,7 @@ const ConversationPage = () => {
     <div>
       <Heading
         title="Conversation"
-        description="Our most advanced conversation model."
+        description="Powered by OpenAI's ChatGPT model 3.5"
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
@@ -115,10 +118,12 @@ const ConversationPage = () => {
             {messages.map((message) => (
               <div
                 key={message.content}
-                className={cn("p-8 w-full items-start gap-x-8 rounded-lg", message.role === "user" ? "bg-white border border-black/10" : "bg-muted")}
+                className={cn("p-8 w-full items-start gap-x-8 rounded-lg", message.role === "user" ? "bg-white border border-zinc-900/20" : "bg-muted border border-[#111827]/20")}
               >
-                {message.role === "user" ? <UserAvatar/> : <BotAvatar/> }
-                <p className="text-sm">{message.content}</p>
+                <div className="border-b-2 rounded-b border-[#111827]/20 w-fit mb-2">
+                  {message.role === "user" ? <UserAvatar/> : <BotAvatar/> }
+                </div>
+                <p className="text-sm"><pre className={cn(inter.className, "whitespace-pre-wrap")}>{message.content}</pre></p>
               </div>
             ))}
           </div>

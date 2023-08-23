@@ -116,9 +116,11 @@ const CodePage = () => {
             {messages.map((message) => (
               <div
                 key={message.content}
-                className={cn("p-8 w-full items-start gap-x-8 rounded-lg", message.role === "user" ? "bg-white border border-black/10" : "bg-muted")}
+                className={cn("p-8 w-full items-start gap-x-8 rounded-lg", message.role === "user" ? "bg-white border border-zinc-900/20" : "bg-muted border border-[#111827]/20")}
               >
-                {message.role === "user" ? <UserAvatar/> : <BotAvatar/> }
+                <div className="border-b-2 rounded-b border-[#111827]/20 w-fit mb-2">
+                  {message.role === "user" ? <UserAvatar/> : <BotAvatar/> }
+                </div>
                 <ReactMarkdown
                   components={{
                     pre: ({node, ...props}) => (

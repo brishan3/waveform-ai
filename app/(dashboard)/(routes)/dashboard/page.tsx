@@ -55,7 +55,7 @@ const DashboardPage = () => {
           <Card
             key={href}
             onClick={() => router.push(href)}
-            className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
+            className="p-4 border-zinc-900/20 flex items-center justify-between hover:shadow-md transition cursor-pointer hover:bg-zinc-300/50"
           >
             <div className="flex items-center gap-4">
               <div className={cn("p-2 w-fit rounded-md", bgColor)}>
