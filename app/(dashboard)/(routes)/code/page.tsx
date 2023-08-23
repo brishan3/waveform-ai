@@ -58,6 +58,8 @@ const CodePage = () => {
     } catch (error: any) {
       if(error?.response?.status === 403) {
         proModal.onOpen();
+      } else if (error?.response?.status === 504) {
+        toast.error("Response Timeout - apologies, Waveform is currently hosted on a Vercel Hobby plan")
       } else {
         toast.error("Something went wrong")
       }
